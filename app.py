@@ -123,6 +123,14 @@ if st.button("Simular"):
     - Las barras indican qué estaciones son más visitadas o con mayor probabilidad en el recorrido.
     - En el caso de vigilancia móvil, la probabilidad de visitar estaciones reforzadas se reduce, cambiando la trayectoria.
     ''')
-
+# Descarga como CSV
+csv = pd.DataFrame({'Paso': range(1, pasos + 1), 'Estación': secuencia})
+csv_file = csv.to_csv(index=False).encode('utf-8')
+st.download_button(
+    label="⬇️ Descargar secuencia como CSV",
+    data=csv_file,
+    file_name="simulacion_metro.csv",
+    mime="text/csv"
+)
 
 """
