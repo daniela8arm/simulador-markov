@@ -24,8 +24,7 @@ Muestra cómo se moverían los incidentes delictivos en el Metro de manera natur
 La simulación muestra cuáles estaciones son las más probables de tener incidentes, incluso después de aplicar vigilancia fija en las estaciones más peligrosas. Esto refleja que, aunque haya policía reforzando ciertas estaciones, algunas siguen siendo puntos críticos.
 
 🔹 Vigilancia móvil:
-Simula una estrategia dinámica donde la policía anticipa y se desplaza hacia estaciones con riesgo creciente, buscando evitar que las zonas se vuelvan más peligrosas.  
-
+Esta estrategia simula que la policía se mueve constantemente, anticipándose a las zonas donde el riesgo de incidentes está aumentando, para intervenir antes de que se vuelvan peligrosas. Así, la vigilancia no está fija en un solo lugar, sino que se adapta y se desplaza según la situación.
 El modelo generará una secuencia de estaciones basada en una cadena de Markov.
 ''')
 
