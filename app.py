@@ -21,7 +21,7 @@ Puedes comparar distintos escenarios:
 Muestra cómo se moverían los incidentes delictivos en el Metro de manera natural, usando solo los datos históricos actuales, sin ninguna intervención.
 
 🔹 Con refuerzo policial:
-Simula qué pasaría si la policía asigna vigilancia fija en las estaciones consideradas más peligrosas, reduciendo la probabilidad de incidentes en esas zonas.
+La simulación muestra cuáles estaciones son las más probables de tener incidentes, incluso después de aplicar vigilancia fija en las estaciones más peligrosas. Esto refleja que, aunque haya policía reforzando ciertas estaciones, algunas siguen siendo puntos críticos.
 
 🔹 Vigilancia móvil:
 Simula una estrategia dinámica donde la policía anticipa y se desplaza hacia estaciones con riesgo creciente, buscando evitar que las zonas se vuelvan más peligrosas.  
