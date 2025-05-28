@@ -1,11 +1,13 @@
-app_code = """
-pip install streamlit pandas numpy matplotlib
-
 import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from collections import Counter
+
+# Función para cargar matrices con cache para optimizar rendimiento
+@st.cache_data
+def cargar_matriz(nombre_archivo):
+    return pd.read_csv(nombre_archivo, index_col=0)
 
 # Título principal
 st.title("🚇 Simulador de Delitos en el Metro CDMX con Cadenas de Markov")
@@ -22,16 +24,16 @@ Puedes comparar distintos escenarios:
 El modelo generará una secuencia de estaciones basada en una cadena de Markov.
 ''')
 
-# Cargar matrices
-matriz_violencia = pd.read_csv("matriz_transicion_violencia.csv", index_col=0)
-matriz_violencia_refuerzo = pd.read_csv("matriz_transicion_violencia_refuerzo.csv", index_col=0)
-matriz_violencia_refuerzo_b = pd.read_csv("matriz_violencia_refuerzo_b.csv", index_col=0)
+# Carga cacheada de matrices
+matriz_violencia = cargar_matriz("matriz_transicion_violencia.csv")
+matriz_violencia_refuerzo = cargar_matriz("matriz_transicion_violencia_refuerzo.csv")
+matriz_violencia_refuerzo_b = cargar_matriz("matriz_violencia_refuerzo_b.csv")
 
-matriz_sin_violencia = pd.read_csv("matriz_transicion_sin_violencia.csv", index_col=0)
-matriz_sin_violencia_refuerzo = pd.read_csv("matriz_transicion_sin_violencia_refuerzo.csv", index_col=0)
-matriz_sin_violencia_refuerzo_b = pd.read_csv("matriz_sin_violencia_refuerzo_b.csv", index_col=0)
+matriz_sin_violencia = cargar_matriz("matriz_transicion_sin_violencia.csv")
+matriz_sin_violencia_refuerzo = cargar_matriz("matriz_transicion_sin_violencia_refuerzo.csv")
+matriz_sin_violencia_refuerzo_b = cargar_matriz("matriz_sin_violencia_refuerzo_b.csv")
 
-# Puedes modificar estas listas con las estaciones reales que tengan media/alta peligrosidad
+# Listas de estaciones con media/alta peligrosidad
 estaciones_media_alta_cv = ['Agrícola Oriental', 'Allende', 'Apatlaco', 'Auditorio', 'Balbuena', 'Buenavista', 'Centro Médico', 'Cerro de la Estrella', 'Chilpancingo', 'Ciudad Deportiva', 'Constitución de 1917', 'División del Norte', 'Fray Servando', 'General Anaya', 'Insurgentes', 'Moctezuma', 'Observatorio', 'Potrero', 'Puebla', 'Refinería', 'Revolución', 'Ricardo Flores Magón', 'Santa Anita', 'Tasqueña', 'Tepalcates', 'Vallejo', 'Villa de Aragón', 'Xola']
 estaciones_media_alta_sv = ['Barranca del Muerto', 'Camarones', 'Chapultepec', 'Copilco', 'Coyoacán', 'Coyuya', 'División del Norte', 'Gomez Farías', 'Guelatao', 'Instituto del Petróleo', 'Insurgentes Sur', 'Isabel La Católica', 'Iztacalco', 'Jamaica', 'Juárez', 'Lagunilla', 'Martín Carrera', 'Miguel Ángel de Quevedo', 'Moctezuma', 'Morelos', 'Nativitas', 'Normal', 'Observatorio', 'Portales', 'Puebla', 'San Joaquín', 'San Juan de Letrán', 'San Pedro de Los Pinos', 'Sevilla', 'Tepalcates', 'Tlatelolco', 'Universidad', 'Viaducto', 'Villa de Aragón', 'Xola', 'Zaragoza']
 
@@ -125,14 +127,12 @@ if st.button("Simular"):
     - Las barras indican qué estaciones son más visitadas o con mayor probabilidad en el recorrido.
     - En el caso de vigilancia móvil, la probabilidad de visitar estaciones reforzadas se reduce, cambiando la trayectoria.
     ''')
-# Descarga como CSV
-csv = pd.DataFrame({'Paso': range(1, pasos + 1), 'Estación': secuencia})
-csv_file = csv.to_csv(index=False).encode('utf-8')
-st.download_button(
-    label="⬇️ Descargar secuencia como CSV",
-    data=csv_file,
-    file_name="simulacion_metro.csv",
-    mime="text/csv"
-)
-
-"""
+# Opción para descargar CSV con la secuencia
+    csv = pd.DataFrame({'Paso': range(1, pasos + 1), 'Estación': secuencia})
+    csv_file = csv.to_csv(index=False).encode('utf-8')
+    st.download_button(
+        label="⬇️ Descargar secuencia como CSV",
+        data=csv_file,
+        file_name="simulacion_metro.csv",
+        mime="text/csv"
+    )
