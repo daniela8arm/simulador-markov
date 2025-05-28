@@ -11,7 +11,7 @@ def cargar_matriz(nombre_archivo):
 
 # Título principal
 st.title("🚇 Simulador de Delitos en el Metro CDMX con Cadenas de Markov")
-
+st.markdown("---")
 # Instrucciones
 st.markdown('''
 Este simulador muestra cómo podrían evolucionar los incidentes delictivos CON violencia y SIN violencia en el Metro de la CDMX a través de cadenas de Markov.
