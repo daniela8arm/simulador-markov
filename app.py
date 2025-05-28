@@ -10,8 +10,7 @@ def cargar_matriz(nombre_archivo):
     return pd.read_csv(nombre_archivo, index_col=0)
 
 # Título principal
-st.title("🚇 Simulador de Delitos en el Metro CDMX con Cadenas de Markov
-\n_______________________________________________________________________")
+st.title("🚇 Simulador de Delitos en el Metro CDMX con Cadenas de Markov")
 
 # Instrucciones
 st.markdown('''
