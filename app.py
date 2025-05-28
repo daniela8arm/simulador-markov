@@ -116,7 +116,7 @@ if st.button("Simular"):
     visitas = list(frecuencia.values())
 
     fig, ax = plt.subplots(figsize=(12, 6))
-    ax.bar(estaciones, visitas, color='darkgreen')
+    ax.bar(estaciones, visitas, color='#87CEEB')
     ax.set_xticks(range(len(estaciones)))
     ax.set_xticklabels(estaciones, rotation=90)
     ax.set_xlabel("Estación")
