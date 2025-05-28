@@ -66,8 +66,8 @@ def simular_cadena_markov_movil(P, estado_inicial, n_pasos, estaciones_refuerzo)
     return estados
 
 # Interfaz de usuario
-tipo_delito = st.radio("**💥Selecciona el tipo de incidente:**", ["CON violencia", "SIN violencia"])
-tipo_simulacion = st.radio("**🧪Selecciona el tipo de simulación:**", ["Escenario base", "Con refuerzo policial", "Vigilancia móvil"])
+tipo_delito = st.radio("**Selecciona el tipo de incidente:**", ["CON violencia", "SIN violencia"])
+tipo_simulacion = st.radio("**Selecciona el tipo de simulación:**", ["Escenario base", "Con refuerzo policial", "Vigilancia móvil"])
 
 if tipo_delito == "CON violencia":
     estaciones_disponibles = matriz_violencia.index.tolist()
@@ -143,5 +143,5 @@ if st.button("Simular"):
     )
 
 st.markdown("---")
-st.markdown("📊 **Simulación desarrollada por Daniela** — Ciencia de Datos, Metro CDMX 2025 🚇")
+st.markdown("📊 **Simulación desarrollada por estudiantes LCDN** — Ciencia de Datos, Metro CDMX 2025 🚇")
 
