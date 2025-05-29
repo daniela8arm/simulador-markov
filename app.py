@@ -17,13 +17,13 @@ st.markdown('''
 Este simulador muestra cómo podrían evolucionar los incidentes delictivos CON violencia y SIN violencia en el Metro de la CDMX a través de cadenas de Markov.
 Puedes comparar distintos escenarios:
 
-🔵 *Escenario base:*
+🔵 **Escenario base:**
 Muestra cómo se moverían los incidentes delictivos en el Metro de manera natural, usando solo los datos históricos actuales, sin ninguna intervención.
 
-👮‍♂️ *Con refuerzo policial:*
+👮‍♂️ **Con refuerzo policial:**
 La simulación muestra cuáles estaciones son las más probables de tener incidentes, incluso después de aplicar vigilancia fija en las estaciones más peligrosas. Esto refleja que, aunque haya policía reforzando ciertas estaciones, algunas siguen siendo puntos críticos.
 
-🚓 *Vigilancia móvil:*
+🚓 **Vigilancia móvil:**
 Esta estrategia simula que la policía se mueve constantemente, anticipándose a las zonas donde el riesgo de incidentes está aumentando, para intervenir antes de que se vuelvan peligrosas. Así, la vigilancia no está fija en un solo lugar, sino que se adapta y se desplaza según la situación.
 
 🧠El modelo generará una secuencia de estaciones basada en una cadena de Markov.
