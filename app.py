@@ -170,7 +170,7 @@ with col2:
         else:
             secuencia = sim_func(matriz, estacion_inicio, pasos)
 
-        st.markdown(f"### 🔄 Simulación: {tipo_delito} - {tipo_simulacion}")
+        st.write(f"### 🔄 Simulación: {tipo_delito} - {tipo_simulacion}")
         for i, est in enumerate(secuencia, 1):
             st.write(f"{i}: {est}")
 
